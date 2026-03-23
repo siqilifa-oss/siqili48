@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>商品 · 商品列表 - 游戏兽SaaS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body data-page="products">
+    <header class="topbar-global">
+      <div class="topbar-global-left">
+        <div class="topbar-global-logo">
+          <img src="../assets/youxishou-logo.png" alt="游戏兽SaaS" />
+        </div>
+        <div class="topbar-global-title">游戏兽SaaS</div>
+      </div>
+      <div class="topbar-global-right">
+        <div class="topbar-icon">🔔</div>
+        <div class="topbar-icon">👤</div>
+      </div>
+    </header>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo"></div>
+        </div>
+        <nav class="nav">
+          <a href="./stats.html" data-nav="stats">
+            <span class="ico">▣</span>
+            <span>数据</span>
+          </a>
+          <a href="./orders.html" data-nav="orders">
+            <span class="ico">▣</span>
+            <span>订单</span>
+          </a>
+          <a href="./products.html" data-nav="products">
+            <span class="ico">▣</span>
+            <span>商品</span>
+          </a>
+          <a href="#" data-nav="sources">
+            <span class="ico">▣</span>
+            <span>货源</span>
+          </a>
+          <a href="./shop.html" data-nav="shop">
+            <span class="ico">▣</span>
+            <span>店铺</span>
+          </a>
+          <a href="#" data-nav="settings">
+            <span class="ico">▣</span>
+            <span>设置</span>
+          </a>
+        </nav>
+      </aside>
+      <aside class="subsidebar" aria-label="二级导航">
+        <a href="./shop.html" data-shop-subnav="shop_list">店铺列表</a>
+        <a href="./products.html" data-products-subnav="grid">商品列表</a>
+      </aside>
+      <main class="main" data-page="products">
+        <header class="topbar">
+          <div>
+            <h2 class="page-title">商品 · 商品列表</h2>
+            <p class="page-desc">按游戏/分组浏览商品，点击宫格进入该分组下的商品明细列表。</p>
+          </div>
+        </header>
+
+        <section class="grid">
+          <div class="card" style="grid-column: 1 / -1;">
+            <div class="bd">
+              <div class="product-category-grid">
+                <a class="product-category-card" href="./product-list.html?group=honor">
+                  <div class="product-category-ico">王</div>
+                  <div class="product-category-body">
+                    <div class="product-category-name">王者荣耀</div>
+                    <div class="product-category-meta mono">分组编码 · GRP-HONOR</div>
+                    <div class="product-category-hint">点击进入该分组商品列表 →</div>
+                  </div>
+                </a>
+                <a class="product-category-card" href="./product-list.html?group=genshin">
+                  <div class="product-category-ico">原</div>
+                  <div class="product-category-body">
+                    <div class="product-category-name">原神</div>
+                    <div class="product-category-meta mono">分组编码 · GRP-GENSHIN</div>
+                    <div class="product-category-hint">点击进入该分组商品列表 →</div>
+                  </div>
+                </a>
+                <a class="product-category-card" href="./product-list.html?group=pubg">
+                  <div class="product-category-ico">和</div>
+                  <div class="product-category-body">
+                    <div class="product-category-name">和平精英</div>
+                    <div class="product-category-meta mono">分组编码 · GRP-PUBG</div>
+                    <div class="product-category-hint">点击进入该分组商品列表 →</div>
+                  </div>
+                </a>
+                <a class="product-category-card" href="./product-list.html?group=dnf">
+                  <div class="product-category-ico">D</div>
+                  <div class="product-category-body">
+                    <div class="product-category-name">DNF</div>
+                    <div class="product-category-meta mono">分组编码 · GRP-DNF</div>
+                    <div class="product-category-hint">点击进入该分组商品列表 →</div>
+                  </div>
+                </a>
+                <a class="product-category-card" href="./product-list.html?group=hsr">
+                  <div class="product-category-ico">穹</div>
+                  <div class="product-category-body">
+                    <div class="product-category-name">崩坏：星穹铁道</div>
+                    <div class="product-category-meta mono">分组编码 · GRP-HSR</div>
+                    <div class="product-category-hint">点击进入该分组商品列表 →</div>
+                  </div>
+                </a>
+                <a class="product-category-card" href="./product-list.html?group=coin">
+                  <div class="product-category-ico">币</div>
+                  <div class="product-category-body">
+                    <div class="product-category-name">综合游戏币</div>
+                    <div class="product-category-meta mono">分组编码 · GRP-COIN</div>
+                    <div class="product-category-hint">点击进入该分组商品列表 →</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../assets/app.js"></script>
+  </body>
+</html>

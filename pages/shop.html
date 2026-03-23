@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>店铺 · 店铺列表 - 游戏兽SaaS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body data-page="shop">
+    <header class="topbar-global">
+      <div class="topbar-global-left">
+        <div class="topbar-global-logo">
+          <img src="../assets/youxishou-logo.png" alt="游戏兽SaaS" />
+        </div>
+        <div class="topbar-global-title">游戏兽SaaS</div>
+      </div>
+      <div class="topbar-global-right">
+        <div class="topbar-icon">🔔</div>
+        <div class="topbar-icon">👤</div>
+      </div>
+    </header>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo"></div>
+        </div>
+        <nav class="nav">
+          <a href="./stats.html" data-nav="stats">
+            <span class="ico">▣</span>
+            <span>数据</span>
+          </a>
+          <a href="./orders.html" data-nav="orders">
+            <span class="ico">▣</span>
+            <span>订单</span>
+          </a>
+          <a href="./products.html" data-nav="products">
+            <span class="ico">▣</span>
+            <span>商品</span>
+          </a>
+          <a href="#" data-nav="sources">
+            <span class="ico">▣</span>
+            <span>货源</span>
+          </a>
+          <a href="./shop.html" data-nav="shop">
+            <span class="ico">▣</span>
+            <span>店铺</span>
+          </a>
+          <a href="#" data-nav="settings">
+            <span class="ico">▣</span>
+            <span>设置</span>
+          </a>
+        </nav>
+      </aside>
+      <aside class="subsidebar" aria-label="二级导航">
+        <a href="./shop.html" data-shop-subnav="shop_list">店铺列表</a>
+        <a href="./products.html" data-products-subnav="grid">商品列表</a>
+      </aside>
+      <main class="main" data-page="shop">
+        <header class="topbar">
+          <div>
+            <h2 class="page-title">店铺 · 店铺列表</h2>
+          </div>
+          <div class="actions">
+            <button class="btn primary" type="button" id="openShopModal">新增店铺</button>
+          </div>
+        </header>
+
+        <section class="grid">
+          <div class="card" style="grid-column: 1 / -1;">
+            <div class="bd">
+              <div class="filters">
+                <div class="field" style="flex:1 1 220px;">
+                  <label>店铺名称</label>
+                  <input class="input" placeholder="请输入店铺名称" />
+                </div>
+                <div class="field">
+                  <label>店铺编号</label>
+                  <input class="input" placeholder="请输入店铺编号，例如 SHP1001" />
+                </div>
+                <div class="field">
+                  <label>店铺类型</label>
+                  <select class="select">
+                    <option>全部类型</option>
+                    <option>直营店</option>
+                    <option>加盟店</option>
+                  </select>
+                </div>
+                <div class="field" style="min-width:180px;">
+                  <label>操作</label>
+                  <div class="split">
+                    <button class="btn primary" type="button">查询</button>
+                    <button class="btn ghost" type="button">重置</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" style="grid-column: 1 / -1;">
+            <div class="bd">
+              <div class="shop-grid">
+                <div class="shop-card">
+                  <div class="shop-hd">
+                    <div class="shop-avatar shop-avatar-taobao">淘</div>
+                    <div style="flex:1;">
+                      <div class="shop-name">
+                        游戏币旗舰店
+                        <button class="btn ghost" style="margin-left:8px;" data-action="delete-shop" data-shop="游戏币旗舰店">删除</button>
+                      </div>
+                      <div class="shop-sub mono">ID: SHP1001</div>
+                      <div class="shop-sub">对接方式：91自有货源</div>
+                      <div class="shop-sub">
+                        <a href="javascript:void(0);" style="text-decoration:underline;">
+                          小程序商品（可点击进入小程序商品弹窗） →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shop-body">
+                    <div class="shop-metrics">
+                      <div class="shop-metric">
+                        <div class="shop-metric-label">累积交易额</div>
+                        <div class="shop-metric-value mono">¥123,400.00</div>
+                      </div>
+                      <div class="shop-metric">
+                        <div class="shop-metric-label">店铺收益</div>
+                        <div class="shop-metric-value mono">¥8,760.00</div>
+                      </div>
+                      <div class="shop-metric">
+                        <div class="shop-metric-label">订单数</div>
+                        <div class="shop-metric-value mono">1,230</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shop-footer">
+                    <button class="btn ghost">编辑</button>
+                    <button class="btn ghost">对接教程</button>
+                    <button class="btn ghost">数据统计</button>
+                    <button class="btn ghost">配置商品</button>
+                  </div>
+                </div>
+
+                <div class="shop-card">
+                  <div class="shop-hd">
+                    <div class="shop-avatar shop-avatar-tmall">天猫</div>
+                    <div style="flex:1;">
+                      <div class="shop-name">
+                        联营游戏馆
+                        <button class="btn ghost" style="margin-left:8px;" data-action="delete-shop" data-shop="联营游戏馆">删除</button>
+                      </div>
+                      <div class="shop-sub mono">ID: SHP1002</div>
+                      <div class="shop-sub">对接方式：91自有货源</div>
+                    </div>
+                  </div>
+                  <div class="shop-body">
+                    <div class="shop-metrics">
+                      <div class="shop-metric">
+                        <div class="shop-metric-label">累积交易额</div>
+                        <div class="shop-metric-value mono">¥56,780.00</div>
+                      </div>
+                      <div class="shop-metric">
+                        <div class="shop-metric-label">店铺收益</div>
+                        <div class="shop-metric-value mono">¥3,210.00</div>
+                      </div>
+                      <div class="shop-metric">
+                        <div class="shop-metric-label">订单数</div>
+                        <div class="shop-metric-value mono">560</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shop-footer">
+                    <button class="btn ghost">编辑</button>
+                    <button class="btn ghost">对接教程</button>
+                    <button class="btn ghost">数据统计</button>
+                    <button class="btn ghost">配置商品</button>
+                  </div>
+                </div>
+
+                <div class="shop-card">
+                  <div class="shop-hd">
+                    <div class="shop-avatar shop-avatar-douyin">抖</div>
+                    <div style="flex:1;">
+                      <div class="shop-name">
+                        测试店铺
+                        <button class="btn ghost" style="margin-left:8px;" data-action="delete-shop" data-shop="测试店铺">删除</button>
+                      </div>
+                      <div class="shop-sub mono">ID: SHP1003</div>
+                      <div class="shop-sub">对接方式：抖音官方</div>
+                    </div>
+                  </div>
+                  <div class="shop-body">
+                    <div class="shop-metrics">
+                      <div class="shop-metric">
+                        <div class="shop-metric-label">累积交易额</div>
+                        <div class="shop-metric-value mono">¥0.00</div>
+                      </div>
+                      <div class="shop-metric">
+                        <div class="shop-metric-label">店铺收益</div>
+                        <div class="shop-metric-value mono">¥0.00</div>
+                      </div>
+                      <div class="shop-metric">
+                        <div class="shop-metric-label">订单数</div>
+                        <div class="shop-metric-value mono">0</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="shop-footer">
+                    <button class="btn ghost">编辑</button>
+                    <button class="btn ghost">对接教程</button>
+                    <button class="btn ghost">数据统计</button>
+                    <button class="btn ghost">配置商品</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="shopModalBackdrop">
+      <div class="modal">
+        <div class="mh">
+          <h4>新增店铺</h4>
+          <button class="btn ghost" id="shopModalClose" type="button">关闭</button>
+        </div>
+        <div class="mb">
+          <div class="modal-form">
+            <div class="field">
+              <label>店铺名称（必填）</label>
+              <input class="input" id="shopNameInput" placeholder="请输入店铺名称" />
+            </div>
+            <div class="field">
+              <label>店铺类型（必填）</label>
+              <select class="select" id="shopTypeSelect">
+                <option value="">请选择店铺类型</option>
+                <option value="淘宝">淘宝</option>
+                <option value="天猫">天猫</option>
+                <option value="拼多多">拼多多</option>
+                <option value="京东">京东</option>
+                <option value="闲鱼">闲鱼</option>
+                <option value="抖音">抖音</option>
+                <option value="快手">快手</option>
+                <option value="得物">得物</option>
+                <option value="交易猫">交易猫</option>
+                <option value="有赞">有赞</option>
+                <option value="小红书">小红书</option>
+              </select>
+            </div>
+            <div class="field">
+              <label>对接方式（必填）</label>
+              <select class="select" id="connectTypeSelect">
+                <option value="">请选择对接方式</option>
+              </select>
+            </div>
+            <div id="douyinExtraFields" style="display:none;">
+              <div class="field">
+                <label>AppKey（必填）</label>
+                <input class="input" placeholder="请输入 AppKey" />
+              </div>
+              <div class="field">
+                <label>AppSecret（必填）</label>
+                <input class="input" placeholder="请输入 AppSecret" />
+              </div>
+              <div class="field">
+                <label>自动退款（必填）</label>
+                <div class="split">
+                  <label style="font-size:12px;"><input type="radio" name="autoRefund" value="on" checked /> 启用</label>
+                  <label style="font-size:12px;"><input type="radio" name="autoRefund" value="off" /> 关闭</label>
+                </div>
+              </div>
+              <div id="douyinMsgFields">
+                <div class="field">
+                  <label>MsgAppId</label>
+                  <input class="input" placeholder="请输入 MsgAppId" />
+                </div>
+                <div class="field">
+                  <label>MsgAppSecret</label>
+                  <input class="input" placeholder="请输入 MsgAppSecret" />
+                </div>
+                <div class="field">
+                  <label>MsgToken</label>
+                  <input class="input" placeholder="请输入 MsgToken" />
+                </div>
+              </div>
+            </div>
+            <div class="field">
+              <label>对接小程序ID（选填）</label>
+              <select class="select" id="miniAppSelect">
+                <option value="">请选择小程序</option>
+                <option>游戏币旗舰店（SHP1001）</option>
+                <option>联营游戏馆（SHP1002）</option>
+                <option>测试店铺（SHP1003）</option>
+              </select>
+            </div>
+            <div class="modal-actions">
+              <button class="btn primary" type="button">确认</button>
+              <button class="btn ghost" type="button" id="shopModalCancel">取消</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="shopDeleteBackdrop">
+      <div class="modal" style="max-width:360px;">
+        <div class="mh">
+          <h4>确认删除店铺</h4>
+        </div>
+        <div class="mb">
+          <p class="page-desc">确定要删除店铺「<span id="shopDeleteName"></span>」吗？此操作仅为原型展示，不会真正删除数据。</p>
+          <div class="modal-actions">
+            <button class="btn primary" type="button" id="shopDeleteConfirm">确认</button>
+            <button class="btn ghost" type="button" id="shopDeleteCancel">取消</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="shopProductsBackdrop">
+      <div class="modal modal-wide">
+        <div class="mh">
+          <h4>配置商品</h4>
+          <button class="btn ghost" type="button" id="shopProductsClose">关闭</button>
+        </div>
+        <div class="mb">
+          <div class="filters">
+            <div class="field">
+              <label>商品ID</label>
+              <input class="input" placeholder="请输入商品ID" />
+            </div>
+            <div class="field" style="flex:1 1 260px;">
+              <label>商品标题</label>
+              <input class="input" placeholder="请输入商品标题" />
+            </div>
+            <div class="field" style="min-width:180px;">
+              <label>&nbsp;</label>
+              <div class="split">
+                <button class="btn primary" type="button">查询</button>
+                <button class="btn ghost" type="button">重置</button>
+              </div>
+            </div>
+            <div class="field" style="margin-left:auto; min-width:180px;">
+              <label>&nbsp;</label>
+              <button class="btn primary" type="button">新增商品</button>
+            </div>
+          </div>
+
+          <div style="margin-top:12px; overflow:auto; max-height:520px;">
+            <table>
+              <thead>
+                <tr>
+                  <th style="width:60px;">#</th>
+                  <th style="width:72px;">图片</th>
+                  <th>商品标题</th>
+                  <th style="width:160px;">商品ID</th>
+                  <th style="width:200px;">配置渠道及面值</th>
+                  <th style="width:100px;">发货方式</th>
+                  <th style="width:180px;">最近更新时间</th>
+                  <th style="width:120px;">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono">2635</td>
+                  <td>
+                    <div style="width:60px; height:60px; background:#eee;"></div>
+                  </td>
+                  <td>
+                    【示例】手游点券 大额直充 自动发货 支持多区服
+                  </td>
+                  <td class="mono">309275234243287504</td>
+                  <td class="mono">面值：10元 / 20元 / 50元 / 100元 · 渠道：三方货源</td>
+                  <td><span class="badge flow-success">三方发货</span></td>
+                  <td class="mono">2023-05-12 17:06:58</td>
+                  <td>
+                    <button class="btn ghost">编辑映射</button>
+                    <button class="btn ghost">移除</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="mono">2604</td>
+                  <td>
+                    <div style="width:60px; height:60px; background:#eee;"></div>
+                  </td>
+                  <td>
+                    【示例】端游点券 首充礼包 支持多区服
+                  </td>
+                  <td class="mono">579896245216197123</td>
+                  <td class="mono">面值：30元 / 98元 / 198元 · 渠道：自有货源</td>
+                  <td><span class="badge flow-processing">人工发货</span></td>
+                  <td class="mono">2023-05-09 19:23:24</td>
+                  <td>
+                    <button class="btn ghost">编辑映射</button>
+                    <button class="btn ghost">移除</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="mono">2520</td>
+                  <td>
+                    <div style="width:60px; height:60px; background:#eee;"></div>
+                  </td>
+                  <td>
+                    【示例】礼包卡 密码自动发货 支持批量导入
+                  </td>
+                  <td class="mono">450012</td>
+                  <td class="mono">面值：5元 / 10元 · 渠道：标准货源</td>
+                  <td><span class="badge flow-success">卡密发货</span></td>
+                  <td class="mono">2021-01-21 17:47:52</td>
+                  <td>
+                    <button class="btn ghost">编辑映射</button>
+                    <button class="btn ghost">移除</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="../assets/app.js"></script>
+  </body>
+  </html>
+

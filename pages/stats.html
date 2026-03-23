@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>数据 · 营业额统计 - 游戏兽SaaS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body data-page="stats">
+    <header class="topbar-global">
+      <div class="topbar-global-left">
+        <div class="topbar-global-logo">
+          <img src="../assets/youxishou-logo.png" alt="游戏兽SaaS" />
+        </div>
+        <div class="topbar-global-title">游戏兽SaaS</div>
+      </div>
+      <div class="topbar-global-right">
+        <div class="topbar-icon">🔔</div>
+        <div class="topbar-icon">👤</div>
+      </div>
+    </header>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo"></div>
+        </div>
+        <nav class="nav">
+          <a href="./stats.html" data-nav="stats">
+            <span class="ico">▣</span>
+            <span>数据</span>
+          </a>
+          <a href="./orders.html" data-nav="orders">
+            <span class="ico">▣</span>
+            <span>订单</span>
+          </a>
+          <a href="./products.html" data-nav="products">
+            <span class="ico">▣</span>
+            <span>商品</span>
+          </a>
+          <a href="#" data-nav="sources">
+            <span class="ico">▣</span>
+            <span>货源</span>
+          </a>
+          <a href="./shop.html" data-nav="shop">
+            <span class="ico">▣</span>
+            <span>店铺</span>
+          </a>
+          <a href="#" data-nav="settings">
+            <span class="ico">▣</span>
+            <span>设置</span>
+          </a>
+        </nav>
+      </aside>
+      <aside class="subsidebar" aria-label="二级导航">
+        <a href="./shop.html" data-shop-subnav="shop_list">店铺列表</a>
+        <a href="./products.html" data-products-subnav="grid">商品列表</a>
+      </aside>
+      <main class="main" data-page="stats">
+        <header class="topbar">
+          <div>
+            <h2 class="page-title">数据 · 营业额统计</h2>
+            <p class="page-desc">基于订单数据的营业额概览，支持切换时间范围。</p>
+          </div>
+          <div class="actions">
+            <a href="./orders.html" class="btn ghost">跳转到订单列表</a>
+          </div>
+        </header>
+
+        <section class="grid">
+          <div class="kpis">
+            <div class="kpi">
+              <div class="label">总营业额</div>
+              <div class="value" id="kpiTurnover">¥0.00</div>
+              <div class="hint">按已支付订单累计。</div>
+            </div>
+            <div class="kpi">
+              <div class="label">订单数</div>
+              <div class="value" id="kpiOrders">0</div>
+              <div class="hint">所有状态订单总量。</div>
+            </div>
+            <div class="kpi">
+              <div class="label">支付转化率</div>
+              <div class="value" id="kpiPaidRate">0%</div>
+              <div class="hint">已支付订单数 / 全部订单数。</div>
+            </div>
+            <div class="kpi">
+              <div class="label">客单价</div>
+              <div class="value" id="kpiAov">¥0.00</div>
+              <div class="hint">总营业额 / 已支付订单数。</div>
+            </div>
+          </div>
+
+          <article class="card" style="grid-column: 1 / span 8;">
+            <div class="hd">
+              <h3>营业额趋势</h3>
+              <div class="split">
+                <label class="field" style="min-width:auto;">
+                  <span>时间范围</span>
+                  <select id="range" class="select" style="min-width:120px;">
+                    <option value="7">最近 7 天</option>
+                    <option value="14">最近 14 天</option>
+                    <option value="30">最近 30 天（拟合）</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <div class="bd">
+              <canvas id="turnoverChart" class="chart"></canvas>
+            </div>
+          </article>
+
+          <article class="card" style="grid-column: span 4;">
+            <div class="hd">
+              <h3>按日营业额明细</h3>
+            </div>
+            <div class="bd">
+              <div style="max-height:260px; overflow:auto;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>日期</th>
+                      <th>营业额</th>
+                      <th>趋势</th>
+                    </tr>
+                  </thead>
+                  <tbody id="turnoverTbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="../assets/app.js"></script>
+  </body>
+</html>

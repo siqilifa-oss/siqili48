@@ -1,0 +1,4 @@
+# 静态站点：整包根目录即为站点根（入口 index.html）
+[build]
+  command = "echo 'static'"
+  publish = "."

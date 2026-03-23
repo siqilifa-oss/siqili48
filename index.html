@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>游戏兽SaaS 控制台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+  </head>
+  <body data-page="home">
+    <header class="topbar-global">
+      <div class="topbar-global-left">
+        <div class="topbar-global-logo">
+          <img src="./assets/youxishou-logo.png" alt="游戏兽SaaS" />
+        </div>
+        <div class="topbar-global-title">游戏兽SaaS</div>
+      </div>
+      <div class="topbar-global-right">
+        <div class="topbar-icon">🔔</div>
+        <div class="topbar-icon">👤</div>
+      </div>
+    </header>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo"></div>
+        </div>
+        <nav class="nav">
+          <a href="./pages/stats.html" data-nav="stats">
+            <span class="ico">▣</span>
+            <span>数据</span>
+          </a>
+          <a href="./pages/orders.html" data-nav="orders">
+            <span class="ico">▣</span>
+            <span>订单</span>
+          </a>
+          <a href="./pages/products.html" data-nav="products">
+            <span class="ico">▣</span>
+            <span>商品</span>
+          </a>
+          <a href="#" data-nav="sources">
+            <span class="ico">▣</span>
+            <span>货源</span>
+          </a>
+          <a href="./pages/shop.html" data-nav="shop">
+            <span class="ico">▣</span>
+            <span>店铺</span>
+          </a>
+          <a href="#" data-nav="settings">
+            <span class="ico">▣</span>
+            <span>设置</span>
+          </a>
+        </nav>
+      </aside>
+      <aside class="subsidebar" aria-label="二级导航">
+        <a href="./pages/shop.html" data-shop-subnav="shop_list">店铺列表</a>
+        <a href="./pages/products.html" data-products-subnav="grid">商品列表</a>
+      </aside>
+      <main class="main" data-page="home">
+        <header class="topbar">
+          <div>
+            <h2 class="page-title">控制台概览</h2>
+            <p class="page-desc">快速查看游戏币交易整体情况，并进入「数据」与「订单」模块。</p>
+          </div>
+          <div class="actions">
+            <a class="btn ghost" href="./pages/orders.html">查看订单列表</a>
+            <a class="btn primary" href="./pages/stats.html">查看营业额数据</a>
+          </div>
+        </header>
+
+        <section class="grid">
+          <div class="kpis">
+            <div class="kpi">
+              <div class="label">近期待结算营业额</div>
+              <div class="value" id="homeTotal">¥0.00</div>
+              <div class="hint">基于最近订单自动计算，仅用于前端演示。</div>
+            </div>
+            <div class="kpi">
+              <div class="label">核心模块</div>
+              <div class="hint">数据：统计营业额；订单：列表、筛选、详情操作列。</div>
+            </div>
+            <div class="kpi">
+              <div class="label">操作建议</div>
+              <div class="hint">从右上角按钮快速进入「订单」或「数据」页面。</div>
+            </div>
+            <div class="kpi">
+              <div class="label">说明</div>
+              <div class="hint">本原型为纯前端 HTML + CSS + JS，无任何后台。</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./assets/app.js"></script>
+  </body>
+</html>

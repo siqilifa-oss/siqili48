@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>商品 · 分组商品列表 - 游戏兽SaaS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body data-page="product_list">
+    <header class="topbar-global">
+      <div class="topbar-global-left">
+        <div class="topbar-global-logo">
+          <img src="../assets/youxishou-logo.png" alt="游戏兽SaaS" />
+        </div>
+        <div class="topbar-global-title">游戏兽SaaS</div>
+      </div>
+      <div class="topbar-global-right">
+        <div class="topbar-icon">🔔</div>
+        <div class="topbar-icon">👤</div>
+      </div>
+    </header>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo"></div>
+        </div>
+        <nav class="nav">
+          <a href="./stats.html" data-nav="stats">
+            <span class="ico">▣</span>
+            <span>数据</span>
+          </a>
+          <a href="./orders.html" data-nav="orders">
+            <span class="ico">▣</span>
+            <span>订单</span>
+          </a>
+          <a href="./products.html" data-nav="products">
+            <span class="ico">▣</span>
+            <span>商品</span>
+          </a>
+          <a href="#" data-nav="sources">
+            <span class="ico">▣</span>
+            <span>货源</span>
+          </a>
+          <a href="./shop.html" data-nav="shop">
+            <span class="ico">▣</span>
+            <span>店铺</span>
+          </a>
+          <a href="#" data-nav="settings">
+            <span class="ico">▣</span>
+            <span>设置</span>
+          </a>
+        </nav>
+      </aside>
+      <aside class="subsidebar" aria-label="二级导航">
+        <a href="./shop.html" data-shop-subnav="shop_list">店铺列表</a>
+        <a href="./products.html" data-products-subnav="grid">商品列表</a>
+      </aside>
+      <main class="main" data-page="product_list">
+        <header class="topbar">
+          <div>
+            <h2 class="page-title" id="productListTitle">商品 · 分组商品列表</h2>
+            <p class="page-desc">
+              当前分组：<strong id="productGroupLabel">—</strong>
+              <span class="muted">｜</span>
+              <a href="./products.html" class="muted" style="text-decoration:underline;">返回宫格列表</a>
+            </p>
+          </div>
+          <div class="actions">
+            <button class="btn ghost" type="button" id="btnBackGrid">返回宫格</button>
+            <button class="btn primary" type="button">新增商品</button>
+          </div>
+        </header>
+
+        <section class="grid">
+          <div class="card" style="grid-column: 1 / -1;">
+            <div class="hd">
+              <h3>商品明细</h3>
+            </div>
+            <div class="bd">
+              <div class="filters">
+                <div class="field" style="flex:1 1 200px;">
+                  <label>商品名称 / 编码</label>
+                  <input class="input" id="plQ" placeholder="请输入关键词" />
+                </div>
+                <div class="field">
+                  <label>上架状态</label>
+                  <select class="select" id="plStatus">
+                    <option>全部</option>
+                    <option>已上架</option>
+                    <option>已下架</option>
+                  </select>
+                </div>
+                <div class="field" style="min-width:180px;">
+                  <label>操作</label>
+                  <div class="split">
+                    <button class="btn primary" type="button">查询</button>
+                    <button class="btn ghost" type="button">重置</button>
+                  </div>
+                </div>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>商品编码</th>
+                      <th>商品名称</th>
+                      <th>规格</th>
+                      <th>售价</th>
+                      <th>库存</th>
+                      <th>状态</th>
+                      <th>操作</th>
+                    </tr>
+                  </thead>
+                  <tbody id="productListTbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../assets/app.js"></script>
+  </body>
+</html>

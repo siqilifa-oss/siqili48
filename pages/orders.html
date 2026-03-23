@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>订单 · 列表与筛选 - 游戏兽SaaS</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="../assets/styles.css" />
+  </head>
+  <body data-page="orders">
+    <header class="topbar-global">
+      <div class="topbar-global-left">
+        <div class="topbar-global-logo">
+          <img src="../assets/youxishou-logo.png" alt="游戏兽SaaS" />
+        </div>
+        <div class="topbar-global-title">游戏兽SaaS</div>
+      </div>
+      <div class="topbar-global-right">
+        <div class="topbar-icon">🔔</div>
+        <div class="topbar-icon">👤</div>
+      </div>
+    </header>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo"></div>
+        </div>
+        <nav class="nav">
+          <a href="./stats.html" data-nav="stats">
+            <span class="ico">▣</span>
+            <span>数据</span>
+          </a>
+          <a href="./orders.html" data-nav="orders">
+            <span class="ico">▣</span>
+            <span>订单</span>
+          </a>
+          <a href="./products.html" data-nav="products">
+            <span class="ico">▣</span>
+            <span>商品</span>
+          </a>
+          <a href="#" data-nav="sources">
+            <span class="ico">▣</span>
+            <span>货源</span>
+          </a>
+          <a href="./shop.html" data-nav="shop">
+            <span class="ico">▣</span>
+            <span>店铺</span>
+          </a>
+          <a href="#" data-nav="settings">
+            <span class="ico">▣</span>
+            <span>设置</span>
+          </a>
+        </nav>
+      </aside>
+      <aside class="subsidebar" aria-label="二级导航">
+        <a href="./orders.html#list" data-orders-subnav="list">订单列表</a>
+        <a href="./orders.html#site" data-orders-subnav="site">站内订单</a>
+        <a href="./orders.html#manual" data-orders-subnav="manual">手工订单</a>
+        <a href="./orders.html#supplement" data-orders-subnav="supplement">补单订单</a>
+      </aside>
+      <main class="main" data-page="orders">
+        <header class="topbar">
+          <div>
+            <h2 class="page-title">订单 · 列表与筛选</h2>
+            <p class="page-desc">查看游戏币订单列表，支持多条件组合筛选，并通过操作列查看订单详情。</p>
+          </div>
+          <div class="actions">
+            <a href="./stats.html" class="btn ghost">查看营业额数据</a>
+            <button id="exportCsv" class="btn primary">导出当前列表 CSV</button>
+          </div>
+        </header>
+
+        <section>
+          <section class="card" style="margin-bottom:14px;">
+            <div class="hd">
+              <h3>订单筛选</h3>
+              <span class="muted" style="font-size:12px;">支持订单号、账号、状态、时间等多条件组合筛选。</span>
+            </div>
+            <div class="bd">
+              <div class="filters">
+                <div class="field" style="flex: 1 1 220px;">
+                  <label for="q">订单编号 / 客户 / 游戏</label>
+                  <input id="q" class="input" placeholder="请输入主订单号、客户名称或游戏名称" />
+                </div>
+                <div class="field">
+                  <label>游戏账号</label>
+                  <input class="input" placeholder="请输入游戏账号（示例）" />
+                </div>
+                <div class="field">
+                  <label for="status">订单状态</label>
+                  <select id="status" class="select">
+                    <option value="">全部状态</option>
+                    <option value="paid">已支付</option>
+                    <option value="pending">待支付</option>
+                    <option value="cancelled">已取消</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="channel">订单渠道</label>
+                  <select id="channel" class="select">
+                    <option value="">全部渠道</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label>支付方式</label>
+                  <select class="select">
+                    <option value="">全部支付方式</option>
+                    <option value="wechat">微信</option>
+                    <option value="alipay">支付宝</option>
+                    <option value="bank">银行卡</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label>收款账户</label>
+                  <input class="input" placeholder="请输入收款账户名称" />
+                </div>
+                <div class="field">
+                  <label>下单时间</label>
+                  <div class="split">
+                    <input id="dateFrom" class="input" type="date" />
+                    <span class="muted" style="font-size:12px;">至</span>
+                    <input id="dateTo" class="input" type="date" />
+                  </div>
+                </div>
+                <div class="field" style="min-width:180px;">
+                  <label>操作</label>
+                  <div class="split">
+                    <button id="searchBtn" type="button" class="btn primary">查询</button>
+                    <button id="resetFilters" type="button" class="btn ghost">重置</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="card">
+            <div class="hd">
+              <div class="status-tabs" aria-label="流程状态切换">
+                <button class="status-tab active" type="button" data-flow-status="">全部订单</button>
+                <button class="status-tab" type="button" data-flow-status="processing">正在处理</button>
+                <button class="status-tab" type="button" data-flow-status="success">交易成功</button>
+                <button class="status-tab" type="button" data-flow-status="failed">交易失败</button>
+                <button class="status-tab" type="button" data-flow-status="waiting">等待领取</button>
+                <button class="status-tab" type="button" data-flow-status="receive_failed">领取失败</button>
+                <button class="status-tab" type="button" data-flow-status="risk">风控订单</button>
+              </div>
+              <div class="split">
+                <span class="muted" style="font-size:12px;">共 <span id="resultCount">0 条</span></span>
+              </div>
+            </div>
+            <div class="bd">
+              <div style="width:100%; overflow:auto;">
+                <table>
+                  <thead>
+                    <tr>
+                      <th style="min-width:180px;">商品信息</th>
+                      <th style="min-width:150px;">订单号</th>
+                      <th style="min-width:150px;">创建时间</th>
+                      <th style="min-width:120px;">客户</th>
+                      <th style="min-width:120px;">游戏</th>
+                      <th style="min-width:90px;">状态</th>
+                      <th style="min-width:110px;">流程状态</th>
+                      <th style="min-width:110px;">订单金额</th>
+                      <th style="min-width:90px;">游戏币</th>
+                      <th style="min-width:100px;">操作</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ordersTbody"></tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </section>
+
+        <div class="modal-backdrop" id="modalBackdrop">
+          <div class="modal">
+            <div class="mh">
+              <h4 id="modalTitle">订单详情</h4>
+              <button id="modalClose" class="btn ghost">关闭</button>
+            </div>
+            <div class="mb">
+              <div id="modalKv"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="../assets/app.js"></script>
+  </body>
+</html>

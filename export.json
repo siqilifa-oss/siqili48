@@ -1,0 +1,55 @@
+{
+  "projectName": "游戏兽SaaS-游戏币交易电商原型",
+  "version": "1.0.0",
+  "pages": [
+    {
+      "id": "home",
+      "title": "控制台概览",
+      "path": "index.html",
+      "description": "首页概览，跳转到数据与订单页面"
+    },
+    {
+      "id": "stats",
+      "title": "数据 · 营业额统计",
+      "path": "pages/stats.html",
+      "description": "营业额统计、折线图与指标数据"
+    },
+    {
+      "id": "orders",
+      "title": "订单 · 列表与筛选",
+      "path": "pages/orders.html",
+      "description": "订单列表、筛选条件、详情弹窗、导出CSV"
+    },
+    {
+      "id": "shop",
+      "title": "店铺 · 店铺列表",
+      "path": "pages/shop.html",
+      "description": "宫格式店铺列表、店铺新增、配置商品、抖音对接配置等弹窗"
+    },
+    {
+      "id": "products",
+      "title": "商品 · 商品列表（宫格）",
+      "path": "pages/products.html",
+      "description": "按游戏/分组宫格展示，点击进入分组下商品明细列表"
+    },
+    {
+      "id": "product_list",
+      "title": "商品 · 分组商品明细",
+      "path": "pages/product-list.html",
+      "description": "某分组下的商品编码、名称、规格、售价等表格列表"
+    }
+  ],
+  "assets": {
+    "styles": "assets/styles.css",
+    "script": "assets/app.js",
+    "images": [
+      "assets/youxishou-logo.png",
+      "assets/fuzhi.svg"
+    ]
+  },
+  "meta": {
+    "generatedAt": "2026-03-12T00:00:00Z",
+    "description": "该 JSON 文件为前端原型打包清单，包含主要页面与静态资源路径，便于后续构建、部署或导入其他系统。源码内容仍在对应的 HTML/CSS/JS 文件中。"
+  }
+}
+
