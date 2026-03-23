@@ -6,11 +6,12 @@
 
 ### 页面
 - **数据**：营业额统计（指标卡片 + 简易图表 + 最近7天表格）
-- **订单**：订单列表、筛选、操作列（详情按钮弹窗）
+- **订单**：订单列表、筛选、操作列（详情按钮弹窗）；**站内订单**（批次号、购买商品、数量与成本、成功/失败笔数、提交时间等，分页与导出 CSV）
 
 ### 技术栈
 - HTML + CSS + 原生 JS
 - 无后端、无构建依赖
+- 商品对接页「新增商品」写入 `localStorage`（`gamecoin_pd_docking_user_rows`），刷新后仍保留
 
 ---
 
@@ -74,7 +75,9 @@ git push -u origin main
 
    1. **Build Command** 一行：打开右侧 **Override**（或「覆盖」）开关 → 输入框里**清空**，不执行任何构建（若平台不允许完全为空，可填 `true` 或 `echo skip`）。  
    2. **Output Directory** 一行：打开 **Override** → 填 **`.`**（英文句点，表示网站根就是仓库根）。**不要**填 `public`，除非你故意把整站放在 `public/` 目录下。  
-   3. **Install Command** 一行：若仓库**没有** `package.json`，打开 **Override** 并清空；若不允许空，可填 `echo skip`，避免无意义地执行 `npm install` 报错。
+   3. **Install Command** 一行：若仓库**没有** `package.json`，打开 **Override** 并清空；若不允许空，可填 `echo skip`，避免无意义地执行 `npm install` 报错。**切勿**只填一个英文句点 **`.`**（在 shell 里 `.` 是「执行脚本」命令，会报错 `filename argument required`）。
+
+   **仓库已含 `vercel.json`**：在根目录固定了 `installCommand` / `buildCommand` 为无操作（`true`）、`outputDirectory` 为 `.`，与纯静态一致；推送到 Git 后 Vercel 会优先采用，可减少在网页里误配的概率。若项目 **Settings** 里仍有 Override，建议与之一致或关闭冲突项。
 
    若三项右侧的 Override **均为关闭**，Vercel 仍可能按「默认」去跑 `npm run build`，容易失败或与纯静态不符——务必按上表改完再部署。
 
