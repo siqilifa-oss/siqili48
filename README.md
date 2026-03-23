@@ -55,13 +55,38 @@ git push -u origin main
 3. **在 Vercel 关联仓库**  
    打开 [vercel.com/new](https://vercel.com/new) → 用 **Continue with GitHub** 授权 → **Import** 刚建的仓库。
 
-4. **部署配置**（一般保持默认即可）  
-   - **Framework Preset**：`Other`  
-   - **Root Directory**：留空  
-   - **Build Command**：留空  
-   - **Output Directory**：留空（不要填 `dist`）
+4. **第四步：Import 页面上的「部署配置」逐项说明**  
 
-5. 点 **Deploy**。完成后在 **Project → Domains** 查看 **`https://项目名.vercel.app`**，即为长期公网地址。以后每次 `git push` 到 `main`，Vercel 会自动重新部署。
+   点 **Import** 后会进入 **New Project** 页（与当前 Vercel 界面一致）。**本项目是纯静态 HTML，主界面几项保持默认即可；折叠区需展开核对一次。**
+
+   **主界面（无需改动的常见正确状态）**
+
+   | 界面上显示的名称 | 建议值 | 说明 |
+   |--------|--------|------|
+   | **Vercel Team** | 你的团队（如 Hobby） | 仅决定项目归属，不影响访问地址。 |
+   | **Project Name** | 自定（例：`siqiligame`） | 决定默认域名：**`https://项目名.vercel.app`**，可与 GitHub 仓库名不同。 |
+   | **Application Preset** | **`Other`** | 与旧版文案中的「Framework Preset」是同一类选项；勿选 Next.js / Nuxt 等，以免自动带上错误构建命令。 |
+   | **Root Directory** | **`./`** | 表示仓库**根目录**即网站根；`index.html` 须在根目录。**不要**只填 `pages`。 |
+
+   **折叠块「Build and Output Settings」——请点开核对（与你截图一致）**
+
+   展开后若看到灰色说明「默认使用 `npm run vercel-build` / `npm run build`」「`public` 若存在否则 `.`」等，**不要只靠默认**：对本原型（根目录 `index.html`、无打包）请**手动覆盖**如下。
+
+   1. **Build Command** 一行：打开右侧 **Override**（或「覆盖」）开关 → 输入框里**清空**，不执行任何构建（若平台不允许完全为空，可填 `true` 或 `echo skip`）。  
+   2. **Output Directory** 一行：打开 **Override** → 填 **`.`**（英文句点，表示网站根就是仓库根）。**不要**填 `public`，除非你故意把整站放在 `public/` 目录下。  
+   3. **Install Command** 一行：若仓库**没有** `package.json`，打开 **Override** 并清空；若不允许空，可填 `echo skip`，避免无意义地执行 `npm install` 报错。
+
+   若三项右侧的 Override **均为关闭**，Vercel 仍可能按「默认」去跑 `npm run build`，容易失败或与纯静态不符——务必按上表改完再部署。
+
+   **折叠块「Environment Variables」**：无需配置；若展开也不要添加变量。
+
+   **常见误操作（请避免）**  
+   - **Output Directory** 填了 `dist`：静态根目录的 `index.html` 会找不到。  
+   - 在项目里配置**全站 Rewrite 到** `/index.html`：本站是多页面（`pages/*.html`），子页会异常。
+
+   主界面已是 **Other + Root `./`** 时即正确；**务必展开 Build and Output Settings 确认无多余 Build/Output**，再点 **Deploy**。
+
+5. 点 **Deploy**。等待 **Building → Ready** 完成后，打开该项目的 **Deployments** 里最新一条应显示 **Ready**。在顶部 **Domains**（或部署成功页上的链接）可看到 **`https://项目名.vercel.app`**，即为长期公网地址。以后每次 `git push` 到 `main`，Vercel 会自动重新部署。
 
 **方式 2：命令行（本地直接上传）**
 
